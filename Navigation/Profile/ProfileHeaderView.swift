@@ -15,10 +15,10 @@ class ProfileHeaderView: UIView {
         return imageView
     }()
 
-    private let nameLabel: UILabel = {
+    private let fullNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Caramel Cat"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,7 +46,7 @@ class ProfileHeaderView: UIView {
         return textField
     }()
 
-    private let showStatusButton: UIButton = {
+    private let setStatusButton: UIButton = {
         let button = UIButton()
         button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -65,16 +65,15 @@ class ProfileHeaderView: UIView {
         backgroundColor = .lightGray
 
         addSubview(avatarImageView)
-        addSubview(nameLabel)
+        addSubview(fullNameLabel)
         addSubview(statusLabel)
         addSubview(statusTextField)
-        addSubview(showStatusButton)
+        addSubview(setStatusButton)
 
         setupConstraints()
 
         statusTextField.addTarget(self, action: #selector(statusTextChanged(_:)), for: .editingChanged)
-
-        showStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) {
@@ -91,27 +90,26 @@ class ProfileHeaderView: UIView {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
 
-            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
 
-            statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
-            statusLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 10),
+            statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
 
             statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10),
-            statusTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            statusTextField.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
             statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
 
-            showStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 20),
-            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
-}
-
+                        setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 10),
+                        setStatusButton.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
+                        setStatusButton.trailingAnchor.constraint(equalTo: statusTextField.trailingAnchor),
+                        setStatusButton.heightAnchor.constraint(equalToConstant: 40)
+                    ])
+                }
+            }
