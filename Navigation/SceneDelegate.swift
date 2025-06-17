@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Navigation
-//
-//  Created by Ума Ильясова on 22.04.2025.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -23,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let feedViewController = FeedViewController()
         feedViewController.title = "Лента"
 
-        let profileViewController = ProfileViewController()
+        let profileViewController = LogInViewController()
         profileViewController.title = "Профиль"
 
         // UINavigationControllers
