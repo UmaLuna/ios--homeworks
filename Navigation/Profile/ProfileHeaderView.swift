@@ -50,12 +50,13 @@ class ProfileHeaderView: UIView {
         let button = UIButton()
         button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
+
         button.layer.cornerRadius = 10
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowOpacity = 0.7
-        button.layer.shadowRadius = 4
+        button.clipsToBounds = true
+
+        button.layer.shadowOpacity = 0
+
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -106,10 +107,10 @@ class ProfileHeaderView: UIView {
             statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
 
-                        setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 10),
-                        setStatusButton.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
-                        setStatusButton.trailingAnchor.constraint(equalTo: statusTextField.trailingAnchor),
-                        setStatusButton.heightAnchor.constraint(equalToConstant: 40)
-                    ])
-                }
-            }
+            setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 10),
+            setStatusButton.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
+            setStatusButton.trailingAnchor.constraint(equalTo: statusTextField.trailingAnchor),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+}
