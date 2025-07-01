@@ -16,6 +16,9 @@
 			membershipExceptions = (
 				Info.plist,
 			);
+			platformFiltersByRelativePath = {
+				Assets.xcassets = (ios, );
+			};
 			target = BDB8B4672DB8C77700D2A8BB /* Navigation */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
