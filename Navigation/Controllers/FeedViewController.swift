@@ -1,10 +1,3 @@
-//
-//  FeedViewController.swift
-//  Navigation
-//
-//  Created by Ума Ильясова on 22.04.2025.
-//
-
 import UIKit
 
 class FeedViewController: UIViewController {
@@ -30,7 +23,7 @@ class FeedViewController: UIViewController {
     @objc func showPost() {
         let postVC = PostViewController()
 
-        let post = Post(title: "Заголовок поста")
+        let post = PostInfo(title: "Заголовок поста")
 
         postVC.post = post
 
