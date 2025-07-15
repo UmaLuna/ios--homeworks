@@ -1,10 +1,11 @@
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
 
-    private let tableView = UITableView()
+    public let tableView = UITableView()
 
-    private let posts: [Post] = [
+    public let posts: [Post] = [
         Post(author: "three_cats", description: "Заставка мультфильма 3 кота", image: "3cats", likes: 240, views: 312),
         Post(author: "kompot", description: "Люблю бабочек", image: "kompot", likes: 966, views: 993),
         Post(author: "korzhik", description: "Пираты йо-хо-хо", image: "korzhik", likes: 134, views: 300),
@@ -13,7 +14,12 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+
+            #if DEBUG
+            view.backgroundColor = .systemGreen
+            #else
+            view.backgroundColor = .systemRed
+            #endif
         setupTableView()
     }
 
